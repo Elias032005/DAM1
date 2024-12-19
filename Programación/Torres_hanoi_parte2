@@ -52,8 +52,20 @@ PARÁMETROS: int * posicion_discos
 
 void hanoi_ui_3discos() {
 	/*
-	AQUI DEBES IMPLEMENTAR TU CÓDIGO.
-	PARA QUE PUNTÚE DEBE ESTAR COMENTADO COMPLETA Y CORRECTAMENTE.
+		Significado de [3][1][3]
+		He usado un array multidimensional para este ejercicio. Esto quiere decir que el array podra optar en tener diferentes valores en tres dimensiones diferentes, donde la 'Z' (el primer 3) indica
+		en qué fila está. Puede elegir en tres posiciones: Izquierda, Centro, Derecha. (del 0 al 2).
+		El  '[1]' se refiere a la COLUMNA en total, que es el array completo. Solo puede optar a 1 opción (que es 0).
+		La 'X' (el segundo 3), da referencia a las posibles opciones dentro de cada fila  (del 0 al 2).
+		
+		Para que dibuje los diferentes tipos de discos.He decidido hacer un if y un else principal donde el principal motivo es mirar si la posición que está mirando el for hay un '0' dibujara una '|'
+		que significara que en está posición no hay ningun disco.
+		Si cuando recora el array, hay un número, dependiendo el número se dibujaran tantos '#'.
+		Para el número 3, le he dicho que dibuje 5 '#'
+		Para el número 2, le he dicho que dibuje 3 '#'
+		Para el número 1, le he dicho que dibuje 1 '#'
+		
+		Cuando este a punto de salir del bulce for, haga un salto de línea.
 	*/
 
     int juego[3][1][3] = {
@@ -65,7 +77,7 @@ void hanoi_ui_3discos() {
     
     for (int z = 0; z < 3; z++) {
         for (int x = 0; x < 3; x++) {
-            if (juego[z][0][x] == 0) {                   /*<-- El array representado como juego[z][0][x] significa:  */													
+            if (juego[z][0][x] == 0) {                  												
                 printf("   |  ");						 /*<-- juego[z]: Indica en qué fila está (de 0 a 2)   */	
             } else {									 /*<-- juego[0]: Indica que cada fila solo tiene una "COLUMNA" (representa que todo el array esta en la misma columna)   */
                 if (juego[z][0][x] == 3) {				/*<-- juego[x]: Accede a los valores dentro de la única columna de cada fila (de 0 a 2)    */
@@ -114,7 +126,13 @@ void hanoi_ui_ndiscos() {
     };
 
 	
-
+	/*La mecánica es la misma que en el ejercicio anterior. la 'Z' indica en que fila estáel '0'* indica que solamente tiene una 'COLUMNA' y la 'X' indica el valor concreto dentro del array*/
+	/*Como solamente tenemos que poner 4 discos, en el array de juego he seguido un cierto orden. El disco '1' será el disco mas grande; eso quiere decir que tendra el mayor num de '#'.
+	  Cuando en el array este asignado el valor '0' no dibujara una '|' que representara que en esa posición no hay ningun disco.
+	  Cuado recorre el for de 'Z', cuando acabe el else if de 'juego[z][0][x] == 4' hará un salto de línea para que quede todo quede ordenado.
+	  Para que también quede todo ordenado, en 'juego[z][0][x] == 1' asigno el tamaño máximo que puede ocupar un disco; cuando no haya ningun disco, he puesto el número de espacios que
+	  número de '#' tiene para que quede todo ordenado.
+	*/
 		for (int z = 0; z < 3; z++) {
 		    for (int x = 0; x < 3; x++) {
 		        if (juego[z][0][x] == 0) {
@@ -164,4 +182,3 @@ int main(int argc, char *argv[]) {
 	return 0;
 
 }
-
