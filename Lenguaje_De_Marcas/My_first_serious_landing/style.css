@@ -1,0 +1,189 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #2d2d2d, #111111); /* Fondo oscuro con un toque de gradiente */
+    color: #f5f5f5; /* Texto claro en todo el sitio */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Barra de navegación */
+  nav {
+    background-color: #3a3a3a; /* Fondo gris para la barra de navegación */
+  }
+  
+  nav .navbar-brand,
+  nav .nav-link {
+    color: #d0d0d0; /* Color gris claro para los enlaces */
+  }
+  
+  nav .nav-link:hover {
+    color: #ffffff; /* Enlaces se vuelven blancos cuando se pasan por encima */
+  }
+  
+  nav .navbar-toggler-icon {
+    background-color: #d0d0d0; /* Ícono del menú en gris claro */
+  }
+  
+  /* Sección de introducción */
+  .intro {
+    padding: 60px 0;
+    text-align: center;
+    background: url('images/background-pattern.png') repeat; /* Fondo con patrón sutil */
+    background-size: cover;
+    color: #ffffff;
+  }
+  
+  .intro h1 {
+    color: #ffffff; /* Blanco nieve para los encabezados */
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  
+  .intro p {
+    font-size: 1.2em;
+    color: #d0d0d0; /* Gris claro para el texto del párrafo */
+  }
+  
+  /* Sección sobre mí */
+  #sobremi {
+    padding: 60px 0;
+    background-color: #222222; /* Fondo más oscuro para la sección */
+  }
+  
+  #sobremi h2 {
+    color: #ffffff;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+  
+  #sobremi h3 {
+    color: #ffffff;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+  
+  #sobremi p,
+  #sobremi h4 {
+    color: #d0d0d0; /* Gris claro para los textos */
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+  
+  #sobremi h4 {
+    font-size: 1.1em;
+    color: #d0d0d0;
+  }
+  
+  #sobremi h4 a {
+    color: #d0d0d0;
+    text-decoration: none;
+  }
+  
+  #sobremi h4 a:hover {
+    color: #ffffff; /* Los enlaces en h4 se vuelven blancos al pasar el ratón */
+  }
+  
+  /* Estilo de los proyectos */
+  #projects {
+    padding: 60px 0;
+    background-color: #2d2d2d;
+  }
+  
+  #projects h2 {
+    color: #ffffff;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+  
+  .project-card {
+    background-color: #333333;
+    border: 1px solid #444444;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .project-card:hover {
+    transform: scale(1.05); /* Efecto sutil de ampliación en el hover */
+  }
+  
+  .project-card img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #444444;
+  }
+  
+  .project-card .card-body {
+    padding: 20px;
+    color: #d0d0d0;
+  }
+  
+  .project-card .card-title {
+    font-size: 1.5em;
+    color: #ffffff;
+  }
+  
+  .project-card .card-text {
+    font-size: 1.1em;
+  }
+  
+  .project-card .btn {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+  }
+  
+  .project-card .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Futurista pero sutil */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  h1, h2, h3, h4, p {
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  h1:hover,
+  h2:hover,
+  h3:hover,
+  h4:hover,
+  p:hover {
+    transform: translateY(-5px);
+    color: #a9a9a9; /* Color gris sutil al pasar el ratón por los títulos y párrafos */
+  }
+  
+  a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #00bcd4; /* Toque futurista con color cian al pasar el ratón */
+  }
+  
+  /* Efectos de sombras */
+  .card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar,
+  .card {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .navbar:hover,
+  .card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
