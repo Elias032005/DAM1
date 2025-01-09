@@ -1,4 +1,4 @@
-
+/*CÓDIGO HECHO PORR ELIAS RAFOLS DELGADO*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h> // esta libreria nos sirve para la parte de contar los movimientos.
