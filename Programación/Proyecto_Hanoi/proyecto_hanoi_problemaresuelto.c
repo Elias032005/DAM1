@@ -7,27 +7,6 @@
 
 int cont = 0; //Esta variable es una variable global, esto quiere decir que la podemos usar/llamar a todos los voids.
 
-void inicio_juego() {
-
-	 
-    printf("#######################################################################\n");
-    printf("#                                                                     #\n");
-    printf("#              Bienvenido al juego de las Torres de Hanoi             #\n");
-    printf("#                                                                     #\n"); 
-    printf("#######################################################################\n\n\n");
-    
-    printf("#######################################################################\n");
-    printf("#                                                                     #\n");
-    printf("#                                                                     #\n");
-    printf("#                                                                     #\n");
-    printf("#         #                     |                       |             #\n");
-    printf("#        ###                    |                       |             #\n");
-    printf("#       #####                   |                       |             #\n");
-    printf("#                                                                     #\n");
-    printf("#                                                                     #\n");
-    printf("#                                                                     #\n");
-    printf("#######################################################################\n");
-}
 
 // Función para imprimir el estado de las varillas.
 void imprimir_varillas(int array_izquierdo[], int array_central[], int array_derecho[]) {
@@ -222,24 +201,57 @@ int contar_movimientos() {
 
 // Programa principal
 int main() {
+	int menu_inicial;
     char menu;
     int array_izquierdo[] = {3, 2, 1};
     int array_central[] =   {0, 0, 0};
     int array_derecho[] =   {0, 0, 0};
 
-    inicio_juego();
-  	do {
-	    menu = menu_movimientos();
-	    operacion(menu, array_izquierdo, array_central, array_derecho);
-	    imprimir_varillas(array_izquierdo, array_central, array_derecho);
-	    
-	} while (menu != 'x' && !comprobacion_final(array_derecho));
-
-	if (comprobacion_final(array_derecho)) {
-		system("cls");
-    	printf(" ¡Felicidades! Has completado el juego de las Torres de Hanoi.\n");
-    	contar_movimientos();
+    printf("#######################################################################\n");
+    printf("#                                                                     #\n");
+    printf("#              Bienvenido al juego de las Torres de Hanoi             #\n");
+    printf("#                                                                     #\n"); 
+    printf("#######################################################################\n\n\n");
+    
+    printf("#######################################################################\n");
+    printf("#                                                                     #\n");
+    printf("#                                                                     #\n");
+    printf("#                                                                     #\n");
+    printf("#         #                     |                       |             #\n");
+    printf("#        ###                    |                       |             #\n");
+    printf("#       #####                   |                       |             #\n");
+    printf("#                                                                     #\n");
+    printf("#                                                                     #\n");
+    printf("#                                                                     #\n");
+    printf("#######################################################################\n");
+    
+    
+    printf("\n\n Quieres jugar?\n");
+    printf("1. Jugar\n");
+    printf("2. Salir\n");
+    printf("\n");
+    
+    scanf("%d", &menu_inicial);
+    if (menu_inicial == 1) {
+    		system("cls");
+	    	do {
+		    menu = menu_movimientos();
+		    operacion(menu, array_izquierdo, array_central, array_derecho);
+		    imprimir_varillas(array_izquierdo, array_central, array_derecho);
+		    
+		} while (menu != 'x' && !comprobacion_final(array_derecho));
+	
+		if (comprobacion_final(array_derecho)) {
+			system("cls");
+	    	printf(" ¡Felicidades! Has completado el juego de las Torres de Hanoi.\n");
+	    	contar_movimientos();
+		}
+	} 	
+	else if ((menu_inicial == 2)) {
+		printf("Cierra la ventana para poder jugar");
+	} else {
+		printf("Numero no correspondido");
 	}
-
+  	
     return 0;
 }
