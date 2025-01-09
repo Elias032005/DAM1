@@ -178,7 +178,7 @@ int comprobacion_final(int array_derecho[]) {
 }
 
 int contar_movimientos() {
-	int nota = 9; // Pongo que la nota maxima que puede optar el usuario si no lo hace en el numero minimo de movimientos saca un 9
+	int nota = 10; // Pongo que la nota maxima que puede optar el usuario si no lo hace en el numero minimo de movimientos saca un 9
     int arquitecto_perfecto = pow(2, 3) - 1; // (2^n) -1
    
     // Calcular la diferencia entre el número de movimientos realizados y el ideal
