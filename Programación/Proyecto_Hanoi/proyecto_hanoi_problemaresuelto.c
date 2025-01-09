@@ -195,9 +195,7 @@ int contar_movimientos() {
         }
         printf("Has hecho %d movimientos extra. Tu nota es: %d.\n", diferencia, nota);
 	} 
-    
 }
-
 
 // Programa principal
 int main() {
@@ -243,7 +241,7 @@ int main() {
 	
 		if (comprobacion_final(array_derecho)) {
 			system("cls");
-	    	printf(" ¡Felicidades! Has completado el juego de las Torres de Hanoi.\n");
+	    	printf(" Felicidades! Has completado el juego de las Torres de Hanoi.\n");
 	    	contar_movimientos();
 		}
 	} 	
