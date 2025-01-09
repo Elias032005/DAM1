@@ -1,5 +1,7 @@
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 // Función para inicializar el juego
 
@@ -181,15 +183,26 @@ int comprobacion_final(int array_derecho[]) {
 }
 
 int contar_movimientos() {
-
+	int nota = 9; // Pongo que la nota maxima que puede optar el usuario si no lo hace en el numero minimo de movimientos saca un 9
+    int arquitecto_perfecto = pow(2, 3) - 1; // (2^n) -1
+   
+    // Calcular la diferencia entre el número de movimientos realizados y el ideal
+    int diferencia = cont - arquitecto_perfecto;
+    
     printf("Numero de movimientos: %d\n", cont);
     
-    int arquitecto_perfecto = 2 ^ 3 - 1;
-    int resultado = arquitecto_perfecto - cont;
-    printf("Resultado arquitecto perfecto : %d\n",arquitecto_perfecto);
-    printf("Resultado: %d\n", resultado);
+    if (arquitecto_perfecto == cont) {
+    	printf("ERES UN ARQUITECTO PERFECTO|n Has sacado un 10");
+	} else {
+		nota -= diferencia;
+		 if (nota < 0) {
+            nota = 0;  // Aseguramos que la nota no sea negativa
+        }
+        printf("Has hecho %d movimientos extra. Tu nota es: %d\n", diferencia, nota);
+	} 
     
 }
+
 
 // Programa principal
 int main() {
@@ -208,6 +221,7 @@ int main() {
 	} while (menu != 'x' && !comprobacion_final(array_derecho));
 
 	if (comprobacion_final(array_derecho)) {
+		system("cls");
     	printf(" ¡Felicidades! Has completado el juego de las Torres de Hanoi.\n");
     	contar_movimientos();
 	}
