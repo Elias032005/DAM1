@@ -79,9 +79,3 @@ INSERT INTO  auditoria_productos (producto_id,accion) VALUES
 SELECT * FROM productos;
 SELECT * FROM transacciones;
 SELECT * FROM  auditoria_productos;
-
-/* Crea los siguientes triggers para las funciones:
-Trigger 1: Actualización Automática de Stock
-Trigger 2: Auditoría de Cambios en Productos
-Trigger 3: Validación de Stock Negativo
-*/
