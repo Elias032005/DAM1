@@ -1,4 +1,5 @@
 
+
 USE tienda_deportes; -- Usamos la tabla con la que queremos que afecte el trigger
 
 /* Crea los siguientes triggers para las funciones:
@@ -30,18 +31,31 @@ END;
 
 -- TRIGGER 2
 
-DELIMITER // 
+DELIMITER //
 CREATE TRIGGER Cambi_Produ
-AFTER INSERT ON productos
+AFTER UPDATE ON productos
 FOR EACH ROW
 BEGIN
-	IF new.nombre THEN
-		UPDATE productos 
-		SET nuevo.nombre = NEW.nombre;
-		SET nueva.cantidad = NEW.stock;
-		SET nuevo.precio = NEW.precio
-	END IF;
-END
-
+    -- Verificar si alguna de las columnas 'nombre', 'stock' o 'precio' ha cambiado
+    IF OLD.nombre <> NEW.nombre OR OLD.stock <> NEW.stock OR OLD.precio <> NEW.precio THEN
+        -- Insertar en la tabla de auditoría con los detalles del cambio
+        INSERT INTO auditoria_productos (producto_id, cambio, fecha)
+        VALUES (NEW.id, CONCAT('Nombre: ', OLD.nombre, ' -> ', NEW.nombre, ', Stock: ', OLD.stock, ' -> ', NEW.stock, ', Precio: ', OLD.precio, ' -> ', NEW.precio), NOW());
+    END IF;
+END;
 //
+
+-- TRIGGER 3
+
+CREATE TRIGGER Vali_stock
+AFTER UPDATE ON productos
+FOR EACH ROW
+BEGIN 
+	IF stock < 0 THEN
+    
+END;
+
+
+
+
 
