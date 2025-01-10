@@ -1,5 +1,6 @@
 
 
+
 USE tienda_deportes; -- Usamos la tabla con la que queremos que afecte el trigger
 
 /* Crea los siguientes triggers para las funciones:
@@ -46,16 +47,14 @@ END;
 //
 
 -- TRIGGER 3
-
+DELIMITER //
 CREATE TRIGGER Vali_stock
 AFTER UPDATE ON productos
 FOR EACH ROW
 BEGIN 
-	IF stock < 0 THEN
-    
+	IF NEW.stock < 0 THEN
+      SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = 'Error: El stock no puede ser negativo.';
+    END IF;
 END;
-
-
-
-
-
+//
