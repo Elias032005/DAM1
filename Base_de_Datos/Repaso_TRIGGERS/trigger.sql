@@ -1,6 +1,5 @@
 
 
-
 USE tienda_deportes; -- Usamos la tabla con la que queremos que afecte el trigger
 
 /* Crea los siguientes triggers para las funciones:
@@ -46,6 +45,20 @@ BEGIN
 END;
 //
 
+-- OTRA VERSIÓN
+	
+DELIMITER // 
+CREATE TRIGGER audit_cambios_prod
+AFTER UPDATE ON productos
+FOR EACH ROW
+BEGIN
+	INSERT INTO auditoria_producto (producto_id, accion)
+    VALUES(OLD.id, CONCAT('Actualización de producto:',
+    'Nombre: ', OLD.nombre, ' -> ', NEW.nombre, ',',
+    'Stock: ', OLD.stock, ' -> ', NEW.stock, ',',
+    'Precio: ', OLD.precio, ' -> ', NEW.precio, ','));
+END;
+//
 -- TRIGGER 3
 DELIMITER //
 CREATE TRIGGER Vali_stock
@@ -55,6 +68,18 @@ BEGIN
 	IF NEW.stock < 0 THEN
       SIGNAL SQLSTATE '45000' 
         SET MESSAGE_TEXT = 'Error: El stock no puede ser negativo.';
+    END IF;
+END;
+//
+-- OTRA VERSIÓN
+DELIMITER //
+CREATE TRIGGER validar_stock_negativo
+AFTER UPDATE ON productos
+FOR EACH ROW
+BEGIN
+	IF NEW.stock < 0 THEN
+    UPDATE productos SET stock = OLD.stock WHERE id = NEW.id;
+    DELETE FROM transacciones WHERE producto_id = NEW.id AND cantidad = NEW.cantidad;
     END IF;
 END;
 //
