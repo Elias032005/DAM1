@@ -24,11 +24,18 @@ END;
 //
 
 DELIMITER //
+
 CREATE TRIGGER elim_reserva
-AFTER DELETE ON reserva
+AFTER DELETE ON reservas
 FOR EACH ROW
 BEGIN 
-	UPDATE habtaciones
-    SET estado = 'DISPONIBLE' WHERE id = OLD.id;
-    END;
+    -- Actualizar el estado de la habitación asociada a la reserva eliminada
+    UPDATE habitaciones
+    SET estado = 'DISPONIBLE'
+    WHERE id = OLD.habitacion_id;
+END;
+
 //
+
+
+
