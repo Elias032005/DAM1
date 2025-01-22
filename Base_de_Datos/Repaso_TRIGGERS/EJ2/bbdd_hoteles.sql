@@ -74,6 +74,8 @@ INSERT INTO reservas (cliente_id, habitacion_id, fecha_inicio, fecha_fin) VALUES
 (9, 9, '2025-05-01', '2025-05-07'),   -- Cliente 9 y Habitación 9
 (10, 10, '2025-05-10', '2025-05-15'); -- Cliente 10 y Habitación 10
 
-INSERT INTO auditoria_habitaciones () VALUES
+INSERT INTO auditoria_habitaciones (habitacion_id, estado_anterior, estado_nuevo, fecha_cambio, accion ) VALUES
+(),
+();
 
 select * from reservas;
