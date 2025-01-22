@@ -27,6 +27,16 @@ CREATE TABLE reservas (
   FOREIGN KEY (habitacion_id) REFERENCES habitaciones(id)
 );
 
+CREATE TABLE auditoria_habitaciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    habitacion_id INT NOT NULL,
+    estado_anterior ENUM('DISPONIBLE', 'RESERVADA', 'MANTENIMIENTO') NOT NULL,
+    estado_nuevo ENUM('DISPONIBLE', 'RESERVADA', 'MANTENIMIENTO') NOT NULL,
+    fecha_cambio DATETIME DEFAULT CURRENT_TIMESTAMP,
+    accion VARCHAR(255) NOT NULL,
+    FOREIGN KEY (habitacion_id) REFERENCES habitaciones(id)
+);
+
 
 INSERT INTO clientes (nombre, telefono, email) VALUES
 ('Juan Pérez', '1234567890', 'juan.perez@example.com'),
@@ -64,6 +74,6 @@ INSERT INTO reservas (cliente_id, habitacion_id, fecha_inicio, fecha_fin) VALUES
 (9, 9, '2025-05-01', '2025-05-07'),   -- Cliente 9 y Habitación 9
 (10, 10, '2025-05-10', '2025-05-15'); -- Cliente 10 y Habitación 10
 
-
+INSERT INTO auditoria_habitaciones () VALUES
 
 select * from reservas;
