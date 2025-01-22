@@ -1,3 +1,4 @@
+
 CREATE DATABASE hoteles;
 USE hoteles;
 
@@ -52,17 +53,17 @@ INSERT INTO habitaciones (numero_habitacion, tipo, precio, estado) VALUES
 (110, 'SIMPLE', 45.00, 'RESERVADA');
 
 INSERT INTO reservas (cliente_id, habitacion_id, fecha_inicio, fecha_fin) VALUES
-(1, 101, '2025-02-01', '2025-02-05'),
-(2, 102, '2025-02-10', '2025-02-15'),
-(3, 103, '2025-03-01', '2025-03-03'),
-(4, 104, '2025-03-05', '2025-03-10'),
-(5, 105, '2025-03-12', '2025-03-16'),
-(6, 106, '2025-04-01', '2025-04-05'),
-(7, 107, '2025-04-10', '2025-04-12'),
-(8, 108, '2025-04-15', '2025-04-18'),
-(9, 109, '2025-05-01', '2025-05-07'),
-(10, 110, '2025-05-10', '2025-05-15');
+(1, 1, '2025-02-01', '2025-02-05'),   -- Cliente 1 y Habitación 1
+(2, 2, '2025-02-10', '2025-02-15'),   -- Cliente 2 y Habitación 2
+(3, 3, '2025-03-01', '2025-03-03'),   -- Cliente 3 y Habitación 3
+(4, 4, '2025-03-05', '2025-03-10'),   -- Cliente 4 y Habitación 4
+(5, 5, '2025-03-12', '2025-03-16'),   -- Cliente 5 y Habitación 5
+(6, 6, '2025-04-01', '2025-04-05'),   -- Cliente 6 y Habitación 6
+(7, 7, '2025-04-10', '2025-04-12'),   -- Cliente 7 y Habitación 7
+(8, 8, '2025-04-15', '2025-04-18'),   -- Cliente 8 y Habitación 8
+(9, 9, '2025-05-01', '2025-05-07'),   -- Cliente 9 y Habitación 9
+(10, 10, '2025-05-10', '2025-05-15'); -- Cliente 10 y Habitación 10
+
 
 
 select * from reservas;
-
