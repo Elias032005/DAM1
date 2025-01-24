@@ -1,28 +1,33 @@
 
+
 DELIMITER //
 CREATE TRIGGER Act_habitacion
-BEFORE INSERT ON habitaciones
+BEFORE INSERT ON reservas
 FOR EACH ROW
 BEGIN
-	IF NEW.estado = 'RESERVADA' THEN
-    SIGNAL SQLSTATE '45000'
-    SET MESSAGE_TEXT = 'Esta habitación ya esta reservada';
-    END IF;
-    
-	IF NEW.estado = 'MANTENIMIENTO' THEN
-    SIGNAL SQLSTATE '45000'
-    SET MESSAGE_TEXT = 'Esta habitación está en mantenimiento';
-    END IF;
-    
-    -- Si el nuevo estado esta disponible y alguien lo reserva, cambiara automáticamente el estado de la habitación.
-    
-	IF NEW.estado = 'DISPONIBLE' THEN
-		SET NEW.estado = 'RESERVA';
+    -- Verificar si la habitación ya está ocupada o en mantenimiento
+    IF EXISTS (SELECT 1 FROM reservas WHERE habitacion_id = NEW.habitacion_id AND estado IN ('RESERVADA', 'MANTENIMIENTO')) THEN
+        -- Si está reservada, lanzar error
+        IF NEW.estado = 'RESERVADA' THEN
+            SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Esta habitación ya está reservada';
+        END IF;
+
+        -- Si está en mantenimiento, lanzar error
+        IF NEW.estado = 'MANTENIMIENTO' THEN
+            SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Esta habitación está en mantenimiento';
+        END IF;
     END IF;
 
+    -- Si el estado es DISPONIBLE, y alguien lo reserva, cambiar automáticamente el estado a RESERVADA
+    IF NEW.estado = 'DISPONIBLE' THEN
+        SET NEW.estado = 'RESERVADA';  -- Cambiar a RESERVADA si se intenta insertar una reserva en una habitación disponible
+    END IF;
 END;
-
 //
+
+
 
 DELIMITER //
 
@@ -31,9 +36,11 @@ AFTER DELETE ON reservas
 FOR EACH ROW
 BEGIN 
     -- Actualizar el estado de la habitación asociada a la reserva eliminada
+    IF (SELECT 1   FROM reservas WHERE habitacion_id = OLD.habitacion_id )  THEN
     UPDATE habitaciones
     SET estado = 'DISPONIBLE'
     WHERE id = OLD.habitacion_id;
+    END IF;
 END;
 
 //
