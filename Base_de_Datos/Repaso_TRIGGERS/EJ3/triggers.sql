@@ -26,7 +26,7 @@ BEGIN
     DECLARE Num_habilidades INT;
 
     -- Obtener los tipos del Pokémon
-    SELECT tipo_primario, tipo_secundario INTO tipo_primario, tipo_secundario FROM pokedex WHERE numero_dex = (SELECT numero_dex FROM pokemon WHERE id = NEW.pokemon_id); 
+    SELECT tipo_primario, tipo_secundario INTO tipo_primario, tipo_secundario FROM pokedex WHERE numero_dex = (SELECT numero_dex FROM pokedex WHERE id = NEW.pokemon_id);
 		-- El trigger coge el pokemon_id del registro que se está integrado en pokemon_movimientos (usando NEW.pokemon_id) y lo usa para obtener los tipos (tipo_primario y tipo_secundario) del Pokémon correspondiente en la tabla pokedex. No se crea ningún nuevo id, solo se recuperan los tipos del Pokémon con base en su pokemon_id ya existente.
     -- Obtener el tipo del movimiento
     SELECT tipo INTO tipo_movimiento FROM movimientos WHERE id = NEW.id;
