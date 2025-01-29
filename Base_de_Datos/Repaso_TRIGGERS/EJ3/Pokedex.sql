@@ -27,7 +27,7 @@ CREATE TABLE pokemon_habilidades (
 );
 
 ALTER TABLE pokemon_habilidades
-ADD COLUMN Num_habilidades INT CHECK (Num_habilidades <4); -- COn esto, limitamos el num de movimientos que puede tener un pokemon
+ADD COLUMN Num_habilidades INT CHECK (Num_habilidades <4); -- Con esto, limitamos el num de movimientos que puede tener un pokemon
 
 CREATE TABLE evoluciones (
   id INT AUTO_INCREMENT PRIMARY KEY,
