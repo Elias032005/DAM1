@@ -59,8 +59,9 @@ AFTER UPDATE ON evoluciones
 FOR EACH ROW 
 BEGIN 
 	IF OLD.nivel_requerido = NEW.nivel.requerido THEN
-    INSERT INTO auditoria_movimientos (Id_evolucion,accion) VALUES
-    (NEW.Id, CONCAT('Nivel requerido acutalizado de: ', OLD.nivel_requerido ' a ', NEW.nivel_requerido));
+    INSERT INTO auditoria_movimientos (Id_evolucion, accion) VALUES
+    (NEW.Id, CONCAT('Nivel requerido acutalizado de: ', IFNULL(OLD.nivel_requerido, 'NULL'), ' a ', IFNULL(NEW.nivel_requerido, 'NULL')));
+    -- El IFNULL sirve para manejar con posibles valores null en nivel_requerido
 	END IF;
 END;
 //
