@@ -1,0 +1,125 @@
+body{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+.container1{
+    width: 1320px;
+    height: 300px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.circle1{
+    width: 202px;
+    height: 202px;
+    border-radius: 50%;
+    background-color:#E3E3E3 ;
+    
+}
+.circle11{
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background-color:#E3E3E3 ;
+    
+}
+.circle2{
+    width: 202px;
+    height: 202px;
+    border-radius: 50%;
+    background-color: #C4C4C4;
+
+}
+.circle22{
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background-color: #C4C4C4;
+
+}
+.circle3{
+    width: 202px;
+    height: 202px;
+    border-radius: 50%;
+    background-color: #ADADAD;
+
+}
+.circle33{
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background-color: #ADADAD;
+
+}
+.circle4{
+    width: 202px;
+    height: 202px;
+    border-radius: 50%;
+    background-color: #989898;
+
+}
+.circle44{
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background-color: #989898;
+
+}
+.circle5{
+    width: 202px;
+    height: 202px;
+    border-radius: 50%;
+    background-color: #7E7E7E;
+
+}
+.circle55{
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background-color: #7E7E7E;
+
+}
+.circle6{
+    width: 202px;
+    height: 202px;
+    border-radius: 50%;
+    background-color: #646464; 
+}
+.circle66{
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background-color: #646464; 
+}
+.circle7{
+    width: 202px;
+    height: 202px;
+    border-radius: 50%;
+    background-color: #FF0000;
+}
+.circle77{
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background-color: #FF0000;
+}
+
+.col-6 img {
+    width: 100%;
+    height: auto;
+}
+h2{
+    font: normal normal normal 51px/50px Georgia;
+    text-align: left
+}
+
+
+p{
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    text-align: left
+  }
