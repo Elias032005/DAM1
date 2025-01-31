@@ -1,5 +1,6 @@
 
 
+
 -- Cada vez que se agrega una evolución nyeva, se registra en la tabla auditría indicando que se ha aádido
 DELIMITER //
 CREATE TRIGGER Reg_evo
