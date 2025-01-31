@@ -1,3 +1,4 @@
+
 CREATE DATABASE Pokedex;
 USE Pokedex;
 
@@ -62,5 +63,6 @@ CREATE TABLE auditoria_evoluciones (
 id INT AUTO_INCREMENT PRIMARY KEY,
 Id_evolucion INT,
 accion VARCHAR(255),
-fecha_registro DATE DEFAULT CURRENT_TIMESTAMP
+fecha_registro DATE DEFAULT CURRENT_TIMESTAMP,
+ FOREIGN KEY (Id_evolucion) REFERENCES pokedex(id)
 );
