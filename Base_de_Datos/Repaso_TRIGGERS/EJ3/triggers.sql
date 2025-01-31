@@ -39,7 +39,7 @@ BEGIN
     END IF;
 
     -- Obtener el número de habilidades del Pokémon
-    SELECT COUNT(*) INTO Num_habilidades FROM pokemon_movimientos WHERE pokemon_id = NEW.pokemon_id;
+    SELECT COUNT(id) INTO Num_habilidades FROM pokemon_movimientos WHERE pokemon_id = NEW.pokemon_id;
 
     -- Verificar si el Pokémon ya tiene 4 movimientos
     IF Num_habilidades >= 4 THEN
