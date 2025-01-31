@@ -7,8 +7,8 @@ AFTER INSERT ON evoluciones
 FOR EACH ROW
 BEGIN
     -- Registramos una nueva evolución con los siguientes parámetros
-    INSERT INTO auditoria_evoluciones (Id_evolucion, accion, fecha_registro) VALUES 
-    (NEW.Id_evolucion, 'Se ha añadido una nueva evolución.', NOW());
+    INSERT INTO auditoria_evoluciones (accion, fecha_registro) VALUES 
+    ('Se ha añadido una nueva evolución.', NOW());
 END;
 //
 
