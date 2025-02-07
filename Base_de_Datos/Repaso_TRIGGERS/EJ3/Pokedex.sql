@@ -1,6 +1,9 @@
 
+
 CREATE DATABASE Pokedex;
 USE Pokedex;
+
+
 
 CREATE TABLE pokedex (
   id INT AUTO_INCREMENT PRIMARY KEY, -- Identificador único para cada entrada de la Pokédex
@@ -66,3 +69,36 @@ accion VARCHAR(255),
 fecha_registro DATE DEFAULT CURRENT_TIMESTAMP,
  FOREIGN KEY (Id_evolucion) REFERENCES pokedex(id)
 );
+
+
+
+
+-- CONSULTAS
+-- Consulta para listar todos los pokemon y sus habilidades
+SELECT pokedex.id, pokedex.nombre AS pokemon, habilidades.nombre AS habilidad  -- Selecionamos las tablas que queremos implicar en este SELECT
+FROM pokedex -- Indicamos la tabla 
+INNER JOIN pokemon_habilidades ON pokedex.id = pokemon_habilidades.pokemon_id -- Indicamos primero la tabla que queremos que "compare" y le asignamos que el pokemon.id sea igual al pokemon_habilidades.pokemon_id
+INNER JOIN habilidades ON pokemon_habilidades.habilidad_id = habilidades.id;  -- Indicamos primero la tabla que queremos que "compare" y le asignamos que el pokemonpokemon_habilidades-habilidades_id sea igual al habilidades.id
+
+-- Después del ON la nomenglatura de (pokemon_habilidades) es LA TABLA DONDE APARECE EL DATO  y (habilidades.id) es el nombre de la columna
+
+-- Consulta par alistar todos los pokemos con sus movimientos incluso si no tienen ninguno asignado
+
+SELECT pokedex.id, pokedex.nombre AS pokemon, movimientos.nombre AS movimiento  -- Selecionamos la tabla y las tablas
+FROM pokedex  -- Indicamos la tabla
+LEFT JOIN pokemon_movimientos ON pokedex.id = pokemon_movimientos.pokemon_id  -- Indicamos la tabla y las columnas que queremos que implique
+LEFT JOIN movimientos ON pokemon_movimientos.movimiento_id = movimientos.id; -- Indicamos la tabla y las columnas que queremos que implique
+
+-- 
+
+SELECT 
+-- Renombramos las tablas para asignarlas mejor
+    movimientos.nombre AS movimiento, 
+    movimientos.tipo AS tipo_movimiento, 
+    pokedex.nombre AS pokemon, 
+    pokedex.tipo_primario AS tipo_primario
+    
+FROM movimientos -- La tabla de donde sale la información principal
+RIGHT JOIN pokemon_movimientos ON movimientos.id = pokemon_movimientos.movimiento_id -- La segunda tabla que compara/relaciona con la tabla movimientos
+RIGHT JOIN pokedex ON pokemon_movimientos.pokemon_id = pokedex.id; -- La segunda tabla que compara/relaciona con la tabla movimientos
+ 
