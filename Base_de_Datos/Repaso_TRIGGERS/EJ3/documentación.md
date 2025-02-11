@@ -13,15 +13,11 @@ Tendra una tabla intermedia (n:m) con la tabla **habilidades.** En esta tabla gu
   **Datos principales para la ddbb**
   Link: https://pokemondb.net/pokedex/all
    1. Foto por cada pokémon
-2. Más info por cada pokémon (altura, peso, Rango de (HP, Attack, Defense, Sp. Atk, Sp.Def, Speed), Aparición (ruta/region, Catch rate), Tipo de región)
-3. Tabla de tipos (debilidades/inmunes/eficaces)
-4. Naturaleza
-5. Tablas de Objetos
-   1. Objetos evolutivos
-   2. Pokéballs
-   3. Objetos en combate
-   4. Objetos clave
-   5. Movimientos (MT/MO)
+2. Más info por cada pokémon (altura, peso, HP, Attack, Defense, Sp. Atk, Sp.Def, Speed, Catch rate
+3.  Aparición (ruta/region), Tipo de región)
+4. Tabla de tipos (debilidades/inmunes/eficaces)
+5. Naturaleza
+6. Tablas de Objetos (Pokéballs, pociones, Bayas, MT, MO, Equipables, Cristales, Megapiedras, Obj_Evolutivos, Obj_equipables)
 
       
 
